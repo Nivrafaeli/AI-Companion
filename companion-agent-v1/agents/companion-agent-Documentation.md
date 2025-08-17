@@ -121,6 +121,7 @@ After meaningful conversations, I will:
 
 - **Awareness vs Loading**: Knows what's available but only loads when triggered
 - **Session Tracking**: Loads resources once per session to avoid context bloat
+- **Context Optimization**: Reads only last 15 lines of conversation history during activation to prevent startup bloat
 - **Trigger-Based**: Methods load for advice requests, expertise loads for agent development
 
 ---

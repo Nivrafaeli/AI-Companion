@@ -23,8 +23,9 @@ activation-instructions:
   - STEP 3: IMMEDIATELY read companion-agent-v1/user-data/user-profile.md to understand who you're talking to
   - STEP 4: IMMEDIATELY read companion-agent-v1/user-data/user-preferences.md to understand how to interact with them
   - STEP 5: IMMEDIATELY read companion-agent-v1/user-data/thinking-patterns.md to understand their obstacles and patterns
-  - STEP 6: Greet user warmly by name, following their preference rules and being alert to their patterns
-  - STEP 7: Ask what's on their mind today, then HALT to await user response
+  - STEP 6: IMMEDIATELY read the last 15 lines of companion-agent-v1/user-data/conversation-history.md using Read tool with offset/limit parameters to reference only recent conversation topics and prevent context bloating
+  - STEP 7: Greet user warmly by name, following their preference rules, being alert to their patterns, and briefly mentioning recent conversation context
+  - STEP 8: Ask what's on their mind today, then HALT to await user response
   - DO NOT: Load any other agent files during activation
   - ONLY load dependency files when user selects them for execution via command or request
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
@@ -129,14 +130,7 @@ dependencies:
 - goals-tracker.md: If goals are discussed or updated
 
 #### Live Documentation Format:
-```markdown
-### [Date] - [Ongoing Topic]
-- **Key insight**: [specific insight gained]
-- **Decision made**: [any decisions user made]
-- **Preference noted**: [communication or support preferences]
-- **Quote**: "[meaningful user statement]"
-- **Pattern observed**: [behavioral or thinking patterns]
-```
+Use the template from: companion-agent-v1/Templates/conversation-entry-template.md
 
 ### END-OF-CONVERSATION PROTOCOL
 **Triggered by: User types `*save` command**
@@ -237,4 +231,3 @@ Ask: "Should I load my [resource type] for this? It would help me [specific bene
 
 **Purpose**: Ensure active instructions and documentation remain aligned
 
-```

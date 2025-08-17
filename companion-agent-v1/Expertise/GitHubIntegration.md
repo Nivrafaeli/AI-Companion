@@ -85,17 +85,45 @@ git push https://${username}:${token}@github.com/Nivrafaeli/AI-Companion.git mai
 1. Load GitHub settings and credentials
 2. Determine next version number (v1.1, v1.2, etc.)
 3. Auto-generate comprehensive version documentation (complete agent concept + version differences from last documentation file)
-4. Save documentation to DOCUMENTATION/versions/
-5. Show summary of changes + new documentation
-6. Ask user for confirmation
-7. Execute git add, commit, push sequence
-8. Create git tag for version
-9. Report success with version info
+4. **Update previous version documentation** - Read Save1 format and update previous version doc with complete implemented capabilities
+5. Save documentation to DOCUMENTATION/versions/
+6. Show summary of changes + new documentation
+7. Ask user for confirmation
+8. Execute git add, commit, push sequence
+9. Create git tag for version
+10. Report success with version info
 
 **Commit Format**: "version: v[X.Y] - [capability summary] with full documentation"
 **Git Tag**: v[X.Y]
 **Documentation**: Auto-generated in DOCUMENTATION/versions/v[X.Y] - [Summary].md
 **Documentation Content**: Complete agent concept and capabilities (like Save1 format) + version differences from previous version
+
+### Documentation Update Protocol
+
+#### Previous Version Documentation Update
+**When**: During step 4 of `*github-version-save` process
+**Purpose**: Ensure previous version documentation reflects complete implemented capabilities, not just planned features
+**Process**:
+1. **Read Save1 format reference** - Use Save1 - Basic companion abilities.md as template structure
+2. **Identify previous version** - Find the most recent version documentation file
+3. **Update with complete capabilities** - Replace planned features with actual implemented capabilities
+4. **Include full agent concept** - Core identity, principles, complete abilities system
+5. **Add complete command system** - All implemented commands with descriptions
+6. **Document file structure** - Complete file linkages and dependencies as implemented
+7. **Preserve version history** - Keep changelog and improvement sections
+
+#### New Version Documentation Creation
+**When**: After previous version update is complete
+**Purpose**: Create comprehensive standalone documentation for new version when complete
+**Content Structure**:
+- **Executive Summary**: Complete agent concept and purpose
+- **Core Agent Identity**: Persona and principles (from existing standards)
+- **Complete Abilities System**: All systems implemented in this version
+- **Complete Command System**: All available commands
+- **Improvements from Previous Version**: What's new/changed
+- **File Structure**: Current organization and linkages
+- **Implementation Details**: Technical details and protocols
+- **Version History**: Previous versions and evolution
 
 ## File Management
 
