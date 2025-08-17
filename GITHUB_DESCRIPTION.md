@@ -2,22 +2,22 @@
 
 **Short Description (for GitHub repo page):**
 ```
-🤗 AI Companion Agent - A sophisticated personal AI companion with persistent memory, structured guidance methods, and adaptive learning. Built with Claude for lasting relationships and personalized support.
+🤗 AI Companion Agent - A flexible personal AI system with persistent memory and adaptive learning. Built with Claude for lasting relationships and personalized support.
 ```
 
 **Long Description (for GitHub repo page):**
 ```
-A sophisticated personal AI companion system built with Claude, featuring memory persistence, structured guidance methods, and adaptive learning capabilities. Unlike traditional AI tools, this companion builds a lasting relationship with you, learning from every conversation to provide increasingly personalized support.
+A flexible personal AI companion system built with Claude, featuring persistent memory, adaptive learning, and extensible capabilities. This companion builds lasting relationships and provides personalized support that grows with your needs.
 
 Key Features:
 • Persistent Memory - Remembers your story, goals, and preferences across sessions
-• Structured Guidance - Uses proven methods for decision-making and problem-solving  
-• Pattern Recognition - Identifies and helps you overcome limiting beliefs
 • Adaptive Learning - Continuously improves understanding of your needs
-• Conversation History - Tracks important insights and progress over time
+• Extensible Architecture - Easy to add new capabilities and methods
+• Modular Design - Separate components for different types of support
 • Fast Iteration - Built for rapid development and improvement
+• Markdown-Based - Pure markdown with no code dependencies
 
-Perfect for anyone seeking a personal AI companion that truly understands and grows with them.
+Perfect for anyone seeking a personal AI companion that can evolve and adapt to their changing needs.
 ```
 
 **Topics/Tags for GitHub:**

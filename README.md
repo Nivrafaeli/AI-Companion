@@ -1,17 +1,17 @@
 # 🤗 AI Companion Agent
 
-A sophisticated personal AI companion system built with Claude, featuring memory persistence, structured guidance methods, and adaptive learning capabilities.
+A flexible personal AI companion system built with Claude, featuring persistent memory, adaptive learning, and extensible capabilities.
 
 ## 🌟 What is AI Companion?
 
-AI Companion is a personal AI assistant that remembers your story, understands your patterns, and provides thoughtful guidance through life's decisions. Unlike traditional AI tools, this companion builds a lasting relationship with you, learning from every conversation to provide increasingly personalized support.
+AI Companion is a personal AI assistant that remembers your story, understands your needs, and provides personalized support that grows with you. Unlike traditional AI tools, this companion builds a lasting relationship and can be extended with new capabilities as your needs evolve.
 
 ### Key Features
 
 - **🧠 Persistent Memory**: Remembers your story, goals, and preferences across sessions
-- **💡 Structured Guidance**: Uses proven methods for decision-making and problem-solving
-- **🎯 Pattern Recognition**: Identifies and helps you overcome limiting beliefs
 - **🔄 Adaptive Learning**: Continuously improves understanding of your needs
+- **🔧 Extensible Architecture**: Easy to add new capabilities and methods
+- **📦 Modular Design**: Separate components for different types of support
 - **📝 Conversation History**: Tracks important insights and progress over time
 - **⚡ Fast Iteration**: Built for rapid development and improvement
 
@@ -69,12 +69,14 @@ Once activated, your companion responds to these commands:
 - `*help` - Show available commands
 - `*profile` - Display current understanding of you
 - `*update-profile` - Update profile based on conversation
-- `*advice` - Get structured guidance on decisions
-- `*challenge` - Challenge limiting beliefs and assumptions
-- `*expertise` - Access specialized knowledge
+- `*advice` - Get guidance on decisions (loads advice methods)
+- `*challenge` - Challenge limiting beliefs and assumptions (loads belief-challenging methods)
+- `*expertise` - Access specialized knowledge (loads expertise files)
 - `*save` - Update all memory files
 - `*s` - Save and reload with updated memories
 - `*exit` - End session and save memories
+
+*Note: Commands may vary based on your agent's current capabilities and loaded methods.*
 
 ## 🧠 Memory System
 
@@ -98,14 +100,15 @@ Once activated, your companion responds to these commands:
 1. **Edit user-profile.md** - Add your background, goals, and preferences
 2. **Modify user-preferences.md** - Set your communication style preferences
 3. **Update thinking-patterns.md** - Document your decision-making patterns
-4. **Customize methods** - Adapt advice and belief-challenging methods to your needs
+4. **Customize existing methods** - Adapt current methods to your needs
 
 ### Adding New Capabilities
 
-1. **Create new method files** in `companion-methods/`
-2. **Add expertise areas** in `Expertise/`
-3. **Update the YAML configuration** in the main command file
-4. **Test and iterate** based on your needs
+1. **Create new method files** in `companion-methods/` for new guidance approaches
+2. **Add expertise areas** in `Expertise/` for specialized knowledge
+3. **Update the YAML configuration** in the main command file to include new dependencies
+4. **Test and iterate** based on your needs and use cases
+5. **Document new features** in the appropriate documentation files
 
 ## 🛠️ Development
 
@@ -132,8 +135,8 @@ Once activated, your companion responds to these commands:
 
 - **v1.0** - Initial release with core companion capabilities
 - Memory system with user profiles and conversation history
-- Structured guidance methods for decision-making
-- Belief challenging techniques for personal growth
+- Extensible architecture for adding new capabilities
+- Modular design for different types of support
 - Agent development expertise for system enhancement
 
 ## 🤝 Support
