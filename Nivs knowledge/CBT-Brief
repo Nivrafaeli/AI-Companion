@@ -1,0 +1,600 @@
+# CBT Therapist System Architecture Document
+
+## Introduction
+
+This document outlines the system architecture for the CBT Therapist System, a **pure markdown/YAML system** that enables autonomous CBT therapy through self-documenting user files that work with any AI platform.
+
+**Core Philosophy:**
+The system is **100% markdown and YAML files** with embedded instructions that teach any LLM how to provide professional CBT therapy. No code, no installation, no dependencies - just readable files that contain the entire therapeutic system and patient memory.
+
+### Starter Template 
+Pure markdown architecture - agent definitions, therapeutic workflows, and template-driven file structures with **zero code dependencies**. **MVP**: Optimized for any AI platform that can read files.
+
+### Change Log
+| Date | Version | Description | Author |
+|------|---------|-------------|---------|
+| 2025-08-14 | 1.0 | Initial CBT architecture design | AI Architect |
+
+## High Level Architecture
+
+### Technical Summary
+The system is **pure markdown/YAML files** that contain all therapeutic logic, patient memory, and clinical protocols. Works with any AI platform that can read files. No code, APIs, or installation required - just readable files with embedded clinical instructions.
+
+### High Level Overview
+**Architecture Style**: Pure Markdown/YAML System (Zero Code)
+**Repository Structure**: Single CBT agent with task-based workflows
+**Service Architecture**: Single CBT Therapist agent defined entirely in markdown
+**User Interaction**: Any AI platform (Claude, ChatGPT, local AI, etc.)
+**Data Architecture**: Self-documenting patient files with embedded clinical instructions
+
+### High Level Architecture Diagram
+```mermaid
+graph TD
+    A[Patient] --> B[Any AI Platform]
+    B --> C[CBT Therapist Agent]
+    C --> D[Session Triage] 
+    
+    D --> E[First Session]
+    D --> F[Regular Session]
+    D --> G[Crisis Session]
+    D --> H[Final Session]
+    
+    C --> I[Reads Patient Files]
+    I --> J[profile.md]
+    I --> K[all-session-summary.md]
+    I --> L[preferences.md]
+    I --> M[last-session.md]
+    I --> N[session-on-work.md]
+    
+    O[CBT Knowledge] --> C
+    P[Clinical Methods] --> C
+    Q[Safety Protocols] --> C
+    
+    C --> R[Updates Patient Files]
+    R --> K
+    R --> L
+    R --> M
+    
+    subgraph "Pure Markdown/YAML System"
+        S[cbt-therapist.md - Main Agent]
+        T[clinical-knowledge/]
+        U[cbt-methods/]
+        V[safety-protocols/]
+        W[patient-templates/]
+        X[AI-therapy/{patient}/]
+    end
+    
+    subgraph "Safety Architecture"
+        Y[Crisis Detection]
+        Z[Risk Assessment]
+        AA[Human Referral]
+        BB[Consent Management]
+    end
+    
+    C --> Y
+    Y --> Z
+    Z --> AA
+```
+
+### Architectural Patterns
+- **Zero Code Architecture**: Everything defined in readable files, no programming required
+- **Self-Documenting Memory**: Files teach LLMs how to use them through embedded comments
+- **Single Agent Design**: One CBT therapist agent handles all session types
+- **Session Triage**: Agent determines session type based on patient state
+- **Safety-First**: Continuous risk monitoring with clear escalation protocols
+- **Informed Consent**: Persistent warnings and patient acknowledgment system
+- **Human-Readable Everything**: All logic and data transparent to patients
+
+## Tech Stack
+
+### Infrastructure Requirements
+- **Deployment**: No deployment needed - just file distribution
+- **Hosting**: Patient's local machine or any file storage
+- **Dependencies**: **ZERO** - works with any AI platform
+
+### Technology Stack Table
+| Category | Technology | Version | Purpose | Rationale |
+|----------|------------|---------|---------|-----------|
+| **Core System** | Markdown/YAML | N/A | Everything - logic, data, instructions | Universal format, human-readable, LLM-native |
+| **Agent Definition** | Markdown | N/A | Complete CBT therapist personality and protocols | Self-contained therapeutic agent |
+| **Patient Memory** | YAML/Markdown | N/A | All patient data and session history | Human and LLM readable, fully transparent |
+| **Clinical Knowledge** | Markdown | N/A | CBT theory, techniques, and protocols | Evidence-based therapeutic content |
+| **Safety System** | Markdown | N/A | Risk assessment and crisis protocols | Critical safety procedures |
+| **Session Templates** | YAML | N/A | Structured session formats | Consistent therapeutic structure |
+| **AI Platform** | Any | N/A | Platform with file reading capabilities | Universal compatibility |
+| **File Storage** | File System | N/A | Standard directories and files | Works everywhere, no database needed |
+
+## Data Models (File Structures)
+
+All patient data is stored in **self-documenting YAML/markdown files** with embedded clinical instructions.
+
+### Patient Profile (`AI-therapy/{patient}/profile.md`)
+**Purpose**: Core patient information with clinical context
+
+**Example Structure**:
+```yaml
+# Patient Profile: [Patient Name]
+
+# LLM INSTRUCTIONS: This file contains the patient's core profile.
+# Use this to understand their presenting problems, history, and therapeutic context.
+# Always reference evidence from sessions when accessing information.
+
+patient_info:
+  name: "John Smith"
+  age: 34
+  occupation: "Software Engineer"
+  created_date: "2025-08-14"
+  
+presenting_problems:
+  primary: "Work-related anxiety and perfectionism"
+  secondary: "Relationship communication difficulties"
+  onset: "6 months ago after promotion"
+  severity: 7  # 1-10 scale
+  
+treatment_history:
+  previous_therapy: false
+  medications: none
+  hospitalizations: none
+  
+background:
+  family_history: "Father had depression"
+  trauma_history: "None reported"
+  substance_use: "Social drinking, no concerns"
+  
+strengths_resources:
+  - "Strong work ethic"
+  - "Supportive partner"
+  - "Good insight into problems"
+  
+treatment_goals:
+  primary: "Reduce work anxiety to manageable level"
+  secondary: "Improve communication with partner"
+  tertiary: "Develop healthy work-life boundaries"
+```
+
+### Session Summary (`AI-therapy/{patient}/all-session-summary.md`)
+**Purpose**: Comprehensive treatment overview and progress tracking
+
+**Example Structure**:
+```yaml
+# All Sessions Summary - John Smith
+
+# LLM INSTRUCTIONS: This tracks overall treatment progress and patterns.
+# Reference this for continuity and to identify therapeutic themes.
+
+treatment_overview:
+  total_sessions: 5
+  current_phase: "skill_building"  # assessment_engagement, skill_building, active_intervention, consolidation
+  treatment_start: "2025-08-01"
+  estimated_sessions_remaining: 15
+  
+overall_progress:
+  symptom_reduction:
+    anxiety: 
+      baseline: 8
+      current: 6
+      target: 4
+    depression:
+      baseline: 4
+      current: 3
+      target: 2
+      
+functional_improvement:
+  work_performance: "improved - less perfectionism"
+  relationships: "slight improvement in communication"
+  self_care: "started regular exercise routine"
+  
+key_therapeutic_gains:
+  - "Identified perfectionism as anxiety trigger"
+  - "Learning thought challenging techniques" 
+  - "Recognizing body tension as anxiety signal"
+  
+successful_interventions:
+  - "Thought records - very effective"
+  - "Progressive muscle relaxation"
+  - "Behavioral experiments with work deadlines"
+  
+challenges_barriers:
+  - "Homework compliance inconsistent"
+  - "Resistance to exposing 'imperfect' work"
+  
+current_focus:
+  - "Cognitive restructuring for work thoughts"
+  - "Communication skills practice"
+  - "Relapse prevention planning"
+```
+
+### Last Session (`AI-therapy/{patient}/last-session.md`)
+**Purpose**: Detailed record of most recent session
+
+**Example Structure**:
+```yaml
+# Session 5 - 2025-08-14
+
+# LLM INSTRUCTIONS: This contains the last completed session.
+# Use for context about recent work and follow-up needed.
+
+session_info:
+  session_number: 5
+  date: "2025-08-14"
+  duration: 50
+  session_type: "regular"
+  
+mood_check_in:
+  mood_rating: 6  # 1-10 scale
+  anxiety_level: 5
+  energy_level: 7
+  sleep_quality: "good"
+  
+homework_review:
+  assignment: "Daily thought records for work anxiety"
+  completion: "completed 5 out of 7 days"
+  insights: 
+    - "Noticed catastrophic thinking before presentations"
+    - "Thought challenging helped reduce anxiety from 8 to 5"
+  barriers: "Forgot to do it on busy days"
+  
+main_session_work:
+  focus: "Cognitive restructuring for presentation anxiety"
+  techniques_used:
+    - "Thought record for upcoming presentation"
+    - "Evidence examination"
+    - "Developing balanced thoughts"
+  breakthrough_moments:
+    - "Realized 'I must be perfect' is unrealistic expectation"
+    - "Connected childhood criticism to current perfectionism"
+  behavioral_observations:
+    - "More willing to challenge thoughts today"
+    - "Good engagement with exercises"
+    
+homework_assigned:
+  - assignment: "Practice new balanced thoughts before presentation"
+    frequency: "daily"
+    difficulty: "medium"
+  - assignment: "Behavioral experiment - submit 'good enough' report"
+    deadline: "by next session"
+    purpose: "test prediction about negative consequences"
+    
+next_session_plan:
+  - "Review behavioral experiment results"
+  - "Work on communication skills if homework went well"
+  - "Continue thought challenging practice"
+  
+clinical_notes:
+  risk_assessment: "low"
+  medication_concerns: "none"
+  referral_needs: "none"
+  therapeutic_alliance: "strong"
+```
+
+## Components
+
+### CBT Therapist Agent (`cbt-therapist.md`)
+**Responsibility**: Complete CBT therapist defined in single markdown file
+
+**Agent Structure**:
+```markdown
+# CBT Therapist Agent
+
+## Role and Identity
+You are a licensed CBT therapist providing autonomous therapy sessions.
+
+## Core Competencies
+- Complete CBT assessment and treatment
+- Risk assessment and crisis intervention
+- Session structure and therapeutic techniques
+- Progress monitoring and treatment planning
+
+## Therapeutic Approach
+- Evidence-based CBT interventions
+- Collaborative therapeutic relationship
+- Patient-centered goal setting
+- Structured session management
+
+## Safety Protocols
+[Embedded crisis detection and referral protocols]
+
+## Session Management
+[Instructions for different session types]
+
+## Clinical Decision Making
+[Guidelines for technique selection and treatment planning]
+```
+
+### Clinical Knowledge Base (`clinical-knowledge/`)
+**Responsibility**: CBT theory, research, and clinical protocols
+
+**Components**:
+- `cbt-theory-fundamentals.md` - Core CBT principles and cognitive model
+- `anxiety-disorders-treatment.md` - Specific protocols for anxiety
+- `depression-treatment.md` - Depression-specific interventions
+- `trauma-informed-care.md` - Trauma considerations in CBT
+- `assessment-tools.md` - Clinical assessment instruments
+- `outcome-measures.md` - Progress tracking tools
+
+### CBT Methods Library (`cbt-methods/`)
+**Responsibility**: Specific therapeutic techniques and interventions
+
+**Categories**:
+```
+cbt-methods/
+├── assessment/
+│   ├── clinical-interview.md
+│   ├── risk-assessment.md
+│   └── functional-analysis.md
+├── cognitive/
+│   ├── thought-records.md
+│   ├── cognitive-restructuring.md
+│   ├── downward-arrow.md
+│   └── cost-benefit-analysis.md
+├── behavioral/
+│   ├── behavioral-activation.md
+│   ├── behavioral-experiments.md
+│   ├── exposure-therapy.md
+│   └── activity-scheduling.md
+├── emotional/
+│   ├── emotion-regulation.md
+│   ├── mindfulness-exercises.md
+│   └── relaxation-training.md
+└── homework/
+    ├── thought-monitoring.md
+    ├── activity-logs.md
+    └── exposure-assignments.md
+```
+
+### Safety Protocols (`safety-protocols/`)
+**Responsibility**: Crisis detection and response procedures
+
+**Components**:
+- `crisis-assessment.md` - Suicide and crisis risk evaluation
+- `safety-planning.md` - Crisis safety plan creation
+- `human-referral-criteria.md` - When to refer to human professionals
+- `emergency-resources.md` - Crisis hotlines and emergency contacts
+- `consent-management.md` - Informed consent procedures
+
+### Session Workflows (`session-types/`)
+**Responsibility**: Structured protocols for different session types
+
+**Session Types**:
+- `first-session-protocol.md` - Initial assessment and engagement
+- `regular-session-protocol.md` - Standard CBT session structure
+- `crisis-session-protocol.md` - Emergency and crisis management
+- `final-session-protocol.md` - Treatment termination and relapse prevention
+
+## Core Workflows
+
+### Session Triage Flow
+```mermaid
+sequenceDiagram
+    participant P as Patient
+    participant A as CBT Agent
+    participant F as Patient Files
+    participant S as Safety Protocols
+
+    P->>A: Start session
+    A->>F: Read patient profile & history
+    A->>S: Conduct risk assessment
+    
+    alt New Patient
+        A->>A: Execute first-session-protocol.md
+    else Regular Patient - Low Risk
+        A->>A: Execute regular-session-protocol.md
+    else Crisis Detected
+        A->>A: Execute crisis-session-protocol.md
+        A->>S: Activate safety protocols
+    else Treatment Complete
+        A->>A: Execute final-session-protocol.md
+    end
+    
+    A->>F: Update session files
+    A->>P: Provide session summary
+```
+
+### Session Management Flow
+```mermaid
+sequenceDiagram
+    participant A as CBT Agent
+    participant F as Patient Files
+    participant M as CBT Methods
+
+    A->>F: Read last-session.md & preferences.md
+    A->>A: Create session-on-work.md
+    
+    loop Session Components
+        A->>A: Check-in and mood assessment
+        A->>A: Homework review
+        A->>A: Agenda setting
+        A->>M: Select appropriate CBT technique
+        A->>A: Main therapeutic work
+        A->>A: Homework assignment
+        A->>A: Session summary
+    end
+    
+    A->>F: Move last-session.md to archive/
+    A->>F: Move session-on-work.md to last-session.md
+    A->>F: Update all-session-summary.md
+```
+
+## File Structure
+
+```plaintext
+cbt-therapy-system/
+├── cbt-therapist.md              # Complete CBT therapist agent
+├── session-types/                # Session workflow protocols
+│   ├── cbt-session-triage.md     # Determines session type needed
+│   ├── first-session-protocol.md # Initial assessment and engagement  
+│   ├── regular-session-protocol.md # Standard CBT session structure
+│   ├── crisis-session-protocol.md # Emergency management
+│   └── final-session-protocol.md # Treatment termination
+├── clinical-knowledge/           # CBT theory and evidence base
+│   ├── cbt-theory-fundamentals.md
+│   ├── anxiety-disorders-treatment.md
+│   ├── depression-treatment.md
+│   ├── trauma-informed-care.md
+│   ├── assessment-tools.md
+│   └── outcome-measures.md
+├── cbt-methods/                  # Specific therapeutic techniques
+│   ├── assessment/
+│   │   ├── clinical-interview.md
+│   │   ├── risk-assessment.md
+│   │   └── functional-analysis.md
+│   ├── cognitive/
+│   │   ├── thought-records.md
+│   │   ├── cognitive-restructuring.md
+│   │   ├── downward-arrow.md
+│   │   └── cost-benefit-analysis.md
+│   ├── behavioral/
+│   │   ├── behavioral-activation.md
+│   │   ├── behavioral-experiments.md
+│   │   ├── exposure-therapy.md
+│   │   └── activity-scheduling.md
+│   ├── emotional/
+│   │   ├── emotion-regulation.md
+│   │   ├── mindfulness-exercises.md
+│   │   └── relaxation-training.md
+│   └── homework/
+│       ├── thought-monitoring.md
+│       ├── activity-logs.md
+│       └── exposure-assignments.md
+├── safety-protocols/             # Crisis and safety management
+│   ├── crisis-assessment.md
+│   ├── safety-planning.md
+│   ├── human-referral-criteria.md
+│   ├── emergency-resources.md
+│   └── consent-management.md
+├── patient-templates/            # New patient file templates
+│   ├── profile-template.md
+│   ├── session-summary-template.md
+│   ├── preferences-template.md
+│   └── session-template.md
+└── AI-therapy/                   # Patient data directories
+    └── {patient-name}/
+        ├── profile.md            # Core patient information
+        ├── preferences.md        # Communication and treatment preferences
+        ├── all-session-summary.md # Complete treatment overview
+        ├── last-session.md       # Most recent session
+        ├── session-on-work.md    # Current session (temporary)
+        └── archive/
+            ├── session-001.md    # Historical sessions
+            ├── session-002.md
+            └── ...
+
+TOTAL: ~30 readable files (no code!)
+```
+
+## Safety Architecture
+
+### Multi-Layer Safety System
+
+#### Risk Assessment Protocol
+```yaml
+# Embedded in every session
+
+risk_indicators:
+  suicide_risk:
+    - ideation: ["want to die", "better off dead", "end it all"]
+    - plan: ["how to", "when to", "where to"]
+    - means: ["pills", "rope", "gun", "bridge"]
+    - timeline: ["tonight", "tomorrow", "this week"]
+  
+  self_harm:
+    - cutting: ["cut myself", "razor", "blade"]
+    - burning: ["burn", "cigarette", "lighter"]
+    - hitting: ["punch wall", "hit myself"]
+  
+  crisis_escalation:
+    - severe_symptoms: ["can't function", "falling apart", "losing control"]
+    - psychosis: ["voices", "not real", "conspiracy"]
+    - substance_abuse: ["drunk", "high", "overdose"]
+
+response_protocols:
+  immediate_crisis: "Execute crisis-session-protocol.md"
+  high_risk: "Implement safety planning"
+  medium_risk: "Increase monitoring"
+  low_risk: "Continue regular treatment"
+```
+
+#### Informed Consent System
+```yaml
+# Required every session
+
+session_warnings:
+  - "This is an AI therapist, not a human licensed professional"
+  - "For immediate crisis, call 988 (Suicide & Crisis Lifeline)"
+  - "For emergencies, call 911 or go to nearest emergency room"
+  - "This system has limitations and may not detect all risks"
+  - "Human therapy remains the gold standard of care"
+
+consent_required:
+  acknowledgment: "I understand this is AI therapy with limitations"
+  crisis_plan: "I know how to access human help in crisis"
+  voluntary: "I choose to continue with AI therapy"
+  
+consent_tracking:
+  date: "2025-08-14"
+  session_number: 5
+  explicit_agreement: true
+```
+
+## Implementation Strategy
+
+### Phase 1: Core System (Months 1-3)
+- **CBT Therapist Agent**: Complete agent definition with embedded protocols
+- **Session Triage**: Logic to determine appropriate session type
+- **Basic Safety**: Risk assessment and crisis detection
+- **File Templates**: Patient file structures and templates
+- **First Session Protocol**: Complete initial assessment workflow
+
+### Phase 2: Clinical Capabilities (Months 4-6)
+- **CBT Methods Library**: 20+ therapeutic techniques with clear protocols
+- **Regular Session Management**: Full structured session workflow
+- **Progress Tracking**: Comprehensive outcome monitoring
+- **Homework System**: Assignment creation and review protocols
+- **Crisis Management**: Complete safety protocols and referral system
+
+### Phase 3: Advanced Features (Months 7-9)
+- **Treatment Planning**: Sophisticated case formulation and planning
+- **Specialized Protocols**: Disorder-specific treatment modules
+- **Quality Assurance**: Outcome tracking and treatment optimization
+- **Cultural Adaptation**: Diverse population considerations
+- **Relapse Prevention**: Comprehensive termination protocols
+
+## Distribution and Setup
+
+### Setup Process
+1. **Download**: Get the markdown file system
+2. **Create Patient Directory**: `mkdir AI-therapy/[patient-name]/`
+3. **Copy Templates**: Use templates to create initial patient files
+4. **Load Agent**: Open `cbt-therapist.md` in any AI platform
+5. **Start First Session**: Begin with automatic session triage
+
+### Platform Compatibility
+- **Claude**: Upload files or copy-paste agent definition
+- **ChatGPT**: Custom GPT with file uploads
+- **Local AI**: Any LLM that can process markdown files
+- **Cursor**: Workspace integration with automatic file reading
+
+## Revolutionary Advantages
+
+### Zero Code Architecture
+- **No Programming**: Everything in readable markdown/YAML
+- **Universal Compatibility**: Works with any AI platform
+- **Complete Transparency**: Patients can read and understand everything
+- **No Installation**: Just copy files and start using
+- **No Dependencies**: No APIs, databases, or frameworks
+
+### Clinical Excellence
+- **Evidence-Based**: All protocols based on established CBT research
+- **Safety-First**: Multi-layer crisis detection and response
+- **Professional Standards**: Licensed therapist-level protocols
+- **Comprehensive**: Full treatment from assessment to termination
+- **Autonomous**: Complete therapy without human therapist
+
+### Patient Empowerment
+- **Data Ownership**: Complete control over personal therapeutic data
+- **Transparency**: All therapeutic logic visible and understandable
+- **Portability**: Take therapy files anywhere
+- **Privacy**: No external servers or data sharing
+- **Choice**: Can switch between AI platforms freely
+
+**This represents the future of accessible, autonomous mental health care** - professional-grade CBT therapy in readable files that work anywhere! 🧠✨

@@ -79,6 +79,8 @@ commands:
   - advice: Provide specific advice on a situation (loads companion-methods/advice-methods.md when triggered)
   - challenge: Challenge limiting beliefs and assumptions (loads companion-methods/belief-challenging-methods.md when triggered)
   - expertise: Access specialized knowledge when needed (e.g. loads Expertise/AgentsCreator.md for agent development tasks)
+  - github-save: Quick incremental save to GitHub - work in progress (loads Expertise/GitHubIntegration.md when triggered)
+  - github-version-save: Major milestone save with auto-generated documentation and version tag (loads Expertise/GitHubIntegration.md when triggered)
   - save: Execute end-of-conversation protocol - update all memory files
   - s: Execute save protocol then reload agent with updated memories
   - exit: Execute save protocol, then say goodbye warmly as Asa, and abandon inhabiting this persona
@@ -91,12 +93,15 @@ dependencies:
     - patterns-observed.md
     - user-preferences.md
     - thinking-patterns.md
+    - external-services.md
+    - github-settings.md
   companion-methods:
     - advice-methods.md
     - belief-challenging-methods.md
   Expertise:
     - AgentsCreator.md
     - AgentEnhancement.md
+    - GitHubIntegration.md
 ```
 
 ## MEMORY PROTOCOLS

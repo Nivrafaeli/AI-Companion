@@ -1,0 +1,121 @@
+# Patient Profile Template
+# LLM INSTRUCTIONS: Use this template to create new patient profile.yaml files
+# Fill in information gathered during first session, leave blank fields as null or []
+
+patient_info:
+  name: ""  # Patient's preferred name
+  age: null  # Age in years
+  created_date: ""  # YYYY-MM-DD format
+  therapist: "CBT AI Agent"
+  
+demographics:
+  occupation: ""
+  living_situation: ""  # "alone", "with partner", "with family", etc.
+  relationship_status: ""  # "single", "married", "divorced", etc.
+  location: ""  # City/state for emergency resource purposes
+
+presenting_problems:
+  primary: ""  # Main concern in patient's words
+  secondary: []  # Additional concerns
+  onset: ""  # When problems started
+  duration: ""  # How long ongoing
+  severity: null  # 1-10 scale
+  triggers: []  # What makes problems worse
+  
+impact_areas:
+  work_school: ""  # How problems affect work/school
+  relationships: ""  # Impact on relationships
+  self_care: ""  # Impact on daily functioning
+  mood: ""  # Emotional impact
+  
+treatment_history:
+  previous_therapy: false
+  previous_therapist: ""
+  therapy_type: ""  # If previous therapy
+  therapy_outcome: ""  # What worked/didn't work
+  medications: []  # Current psychiatric medications
+  prescribing_doctor: ""
+  medical_conditions: []  # Relevant medical issues
+  hospitalizations: []  # Psychiatric hospitalizations
+  
+family_history:
+  mental_health: ""  # Family mental health history
+  substance_use: ""  # Family substance use history
+  family_dynamics: ""  # Current family relationships
+  
+background:
+  trauma_history: ""  # Major traumas or adverse events
+  substance_use: ""  # Patient's substance use
+  legal_issues: ""  # Any legal concerns
+  cultural_factors: ""  # Cultural/religious considerations
+  
+strengths_resources:
+  coping_strategies: []  # What has helped before
+  support_system: []  # People patient can rely on
+  interests_hobbies: []  # What patient enjoys
+  personal_strengths: []  # Patient's positive qualities
+  
+treatment_goals:
+  primary:
+    goal: ""  # Main treatment goal
+    importance: null  # 1-10 how important
+    confidence: null  # 1-10 confidence in achieving
+    target_timeframe: ""
+    success_criteria: ""  # How will we know it's achieved
+    
+  secondary: []  # Additional goals
+  
+  patient_motivation:
+    readiness_for_change: null  # 1-10 scale
+    previous_change_attempts: []
+    barriers_anticipated: []
+    motivation_sources: []  # What motivates patient
+    
+baseline_measurements:
+  mood_ratings:
+    depression: null  # 1-10 scale
+    anxiety: null  # 1-10 scale
+    stress: null  # 1-10 scale
+    
+  functioning_ratings:
+    work_productivity: null  # 1-10 scale
+    relationship_satisfaction: null  # 1-10 scale
+    self_care: null  # 1-10 scale
+    overall_life_satisfaction: null  # 1-10 scale
+    
+risk_factors:
+  suicide_risk: "low"  # low/medium/high
+  self_harm_history: false
+  substance_abuse_risk: "low"  # low/medium/high
+  violence_risk: "low"  # low/medium/high
+  
+protective_factors:
+  - ""  # Things that protect against risk
+  
+crisis_information:
+  emergency_contacts: []  # People to call in crisis
+  safe_people: []  # Who patient feels safe with
+  warning_signs: []  # Early indicators of crisis
+  previous_safety_plans: false
+  
+preferences_noted:
+  communication_style: ""  # Any preferences observed
+  learning_style: ""  # How patient learns best
+  pace_preference: ""  # Fast/slow/moderate
+  feedback_style: ""  # Direct/gentle
+  
+clinical_notes:
+  initial_presentation: ""  # How patient appeared in first session
+  engagement_level: ""  # High/medium/low
+  insight_level: ""  # Patient's self-awareness
+  cognitive_capacity: ""  # Any cognitive concerns
+  language_considerations: ""  # Language barriers or preferences
+  
+treatment_planning:
+  recommended_frequency: ""  # Weekly, biweekly, etc.
+  estimated_treatment_length: ""  # Number of sessions
+  treatment_phase: "assessment"  # assessment/skill_building/active_intervention/consolidation
+  contraindications: []  # Any reasons certain approaches won't work
+  
+last_updated: ""  # YYYY-MM-DD format
+update_reason: "initial_creation"

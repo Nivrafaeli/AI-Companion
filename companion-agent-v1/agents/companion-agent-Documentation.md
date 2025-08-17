@@ -95,6 +95,7 @@ After meaningful conversations, I will:
 - **advice**: Provide structured advice (loads advice-methods.md)
 - **challenge**: Challenge limiting beliefs and assumptions (loads belief-challenging-methods.md)
 - **expertise**: Access specialized knowledge (e.g. AgentsCreator for agent development)
+- **github-save**: Save entire project to GitHub (loads GitHubIntegration.md)
 - **save**: Update all memory files  
 - **s**: Save and reload agent with updated memories
 - **exit**: Save memories and end session
@@ -108,6 +109,7 @@ After meaningful conversations, I will:
 ### Expertise Areas  
 - **AgentsCreator**: LLM instruction writing, file format rules, agent development patterns
 - **AgentEnhancement**: Systematic protocol for adding new abilities to companion agent
+- **GitHubIntegration**: Save project to GitHub with authentication and version control
 
 ### Memory System
 - **Live Documentation**: Updates files during conversation

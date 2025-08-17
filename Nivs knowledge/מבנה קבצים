@@ -1,0 +1,49 @@
+אז צריך להפריד את הקבצים:
+
+agent.md contains:
+
+role,persona,
+
+dependencies:
+
+tasks: 
+
+CBT-session-triage.md
+
+CBT-first-session-facilitation.md 
+
+CBT-normal-session-facilitation.md 
+
+  (here there is command to answer according to user-preferances, and to read user  session summary, to talk about HW that were wrriten, 
+
+CBT-emergency-session-facilitation.md 
+
+CBT-last-session-facilitation.md 
+
+templets:  full-session-summary.md
+
+data :
+
+         - CBT-goal-discover-methods.md
+
+          -any-other-methods
+
+          -AI-diary/{user}/all-session-summary
+
+           -AI-diary/{user}/preferances.md
+
+            -AI-diary/{user}/last-session.md
+
+            -AI-diary/{user}/profile.md
+
+           -AI-diary/{user}/session-on-work.md
+
+in each users folder:
+
+all-session-summary.md (created during first-session-facilitation.md updated at the end of the session)
+
+preferances.md (created during first-session-facilitation.md updated during any session (how to use is in the discription of each session)
+
+last-session (moved at the end of each session to archive, and creating new one from session on work)
+
+session-on-work.md (created during the session, at the end of the session copied to lastsession.md and then delleted)
